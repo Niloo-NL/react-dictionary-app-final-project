@@ -1,24 +1,21 @@
 import React from "react";
-//import ReactAudioPlayer from "react-audio-player";
 import AudioPlayer from "react-h5-audio-player";
+import "./Phonetic.css";
 
 export default function Phonetic(props) {
   return (
-    <div className="phonetic">
+    <div className="phonetics">
       <AudioPlayer
-        autoPlay={false}
         src={props.input.audio}
+        autoPlay={false}
         onPlay={(e) => console.log("onPlay")}
         showSkipControls={false}
         hasDefaultKeyBindings={false}
         showJumpControls={false}
         customVolumeControls={[]}
         customAdditionalControls={[]}
-        defaultCurrentTime=""
-        defaultDuration=""
       />
-      <br></br>
-      {props.input.text}
+      <span className="pronounce">{props.input.text}</span>
     </div>
   );
 }

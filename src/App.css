@@ -1,16 +1,22 @@
 body {
-  background-color: rgb(245, 233, 233);
+  background-image: url("background4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .App footer {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 5px;
+  margin-bottom: 30px;
+  font-size: 14px;
+  opacity: 0.7;
 }
 
 .App h1 {
   text-align: center;
   margin-top: 80px;
-  margin-bottom: 50px;
+  margin-bottom: 80px;
+  font-size: 50px;
 }
 
 .rhap_progress-section {

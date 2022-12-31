@@ -33,3 +33,12 @@ body {
   text-decoration: none;
   color: #9c6317;
 }
+
+@media (max-width: 1000px) {
+  .App body {
+    padding: 30px;
+  }
+  .App .container {
+    background-repeat: no-repeat;
+  }
+}

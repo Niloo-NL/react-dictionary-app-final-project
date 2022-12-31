@@ -41,4 +41,7 @@ body {
   .App .container {
     background-repeat: no-repeat;
   }
+  .App footer {
+    font-size: smaller;
+  }
 }

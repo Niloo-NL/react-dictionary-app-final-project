@@ -21,7 +21,7 @@ export default function App() {
           </a>{" "}
           and is an open-source on{" "}
           <a
-            href="https://github.com/Niloo-NL/react-weather-app-final-Project"
+            href="https://github.com/Niloo-NL/react-dictionary-app-final-project"
             target="_blank"
             rel="noreferrer"
           >

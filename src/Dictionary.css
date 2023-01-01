@@ -24,3 +24,28 @@ input {
 form {
   margin-bottom: 30px;
 }
+
+@media (min-width: 992px) {
+  section {
+    margin: 20px 300px;
+  }
+}
+
+input {
+  width: 100%;
+  padding: 6px 4px;
+  border-radius: 6px;
+  color: #333;
+  border: 1px solid black;
+}
+
+.title {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Bad Script", cursive;
+}
+
+form {
+  margin-bottom: 30px;
+}

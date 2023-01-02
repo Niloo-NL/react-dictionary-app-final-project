@@ -8,9 +8,11 @@ export default function Dictionary() {
   let [keyWord, setKeyWord] = useState("");
   let [result, setResult] = useState(null);
   let [photos, setPhotos] = useState(null);
+  //let [errorMessage, setErrorMessage] = useState(false);
 
   function handleResponse(response) {
     // console.log(response.data[0].meanings[0].definitions[0].definition);
+    //setErrorMessage(false);
     setResult(response.data[0]);
   }
 
@@ -18,19 +20,23 @@ export default function Dictionary() {
     setPhotos(response.data.photos);
   }
 
+  //function handleError(error) {
+  //setErrorMessage(true);
+  //}
+
   function search(event) {
     event.preventDefault();
     //documentation : https://dictionaryapi.dev/
-    let apiUrl = ` https://api.dictionaryapi.dev/api/v2/entries/en/${keyWord}&per_page=8`;
-    axios.get(apiUrl).then(handleResponse);
+    let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyWord}`;
+    axios.get(apiUrl).then(handleResponse); //.catch(handleError);
+
+    let pexelsApiKey =
+      "563492ad6f91700001000001a6b1167c27c245f9bbe3b6baf2d87030";
+    let pexelsUrl = `https://api.pexels.com/v1/search?query=${keyWord}&per_page=6`;
+    let headers = { Authorization: `Bearer ${pexelsApiKey}` };
+
+    axios.get(pexelsUrl, { headers: headers }).then(handlePexels);
   }
-
-  let pexelsApiKey = "563492ad6f91700001000001a6b1167c27c245f9bbe3b6baf2d87030";
-  let pexelsUrl = `https://api.pexels.com/v1/search?query=${keyWord}&per_page=6`;
-  let headers = { Authorization: `Bearer ${pexelsApiKey}` };
-
-  axios.get(pexelsUrl, { headers: headers }).then(handlePexels);
-
   function handleChange(event) {
     setKeyWord(event.target.value);
   }

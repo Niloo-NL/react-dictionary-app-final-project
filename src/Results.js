@@ -9,13 +9,8 @@ export default function Results(props) {
       <div className="results">
         <section>
           <h2>{props.input.word}</h2>
-          {props.input.phonetics.map(function (phonetic, index) {
-            return (
-              <div key={index}>
-                <Phonetic input={phonetic} />
-              </div>
-            );
-          })}
+
+          <Phonetic input={props.input.phonetics} />
         </section>
 
         {props.input.meanings.map(function (meaning, index) {

@@ -6,8 +6,8 @@ export default function Phonetic(props) {
   return (
     <div className="phonetics">
       <AudioPlayer
-        src={props.input.audio}
-        autoPlay={false}
+        src={props.input[0].audio}
+        autoPlayAfterSrcChange={false}
         onPlay={(e) => console.log("onPlay")}
         showSkipControls={false}
         hasDefaultKeyBindings={false}
@@ -15,7 +15,7 @@ export default function Phonetic(props) {
         customVolumeControls={[]}
         customAdditionalControls={[]}
       />
-      <span className="pronounce">{props.input.text}</span>
+      <span className="pronounce">{props.input[0].text}</span>
     </div>
   );
 }

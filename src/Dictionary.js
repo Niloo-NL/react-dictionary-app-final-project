@@ -8,11 +8,11 @@ export default function Dictionary() {
   let [keyWord, setKeyWord] = useState("");
   let [result, setResult] = useState(null);
   let [photos, setPhotos] = useState(null);
-  //let [errorMessage, setErrorMessage] = useState(false);
+  let [errorMessage, setErrorMessage] = useState(false);
 
   function handleResponse(response) {
     // console.log(response.data[0].meanings[0].definitions[0].definition);
-    //setErrorMessage(false);
+    setErrorMessage(false);
     setResult(response.data[0]);
   }
 
@@ -20,19 +20,21 @@ export default function Dictionary() {
     setPhotos(response.data.photos);
   }
 
-  //function handleError(error) {
-  //setErrorMessage(true);
-  //}
+  function handleError() {
+    setErrorMessage(true);
+    return "Sorry, the word you are looking for is not in our data base. Look up another word!";
+  }
 
   function search(event) {
     event.preventDefault();
-    //documentation : https://dictionaryapi.dev/
+    //Dictionary documentation : https://dictionaryapi.dev/
+    //Photos documentation : https://www.pexels.com/api/
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyWord}`;
-    axios.get(apiUrl).then(handleResponse); //.catch(handleError);
+    axios.get(apiUrl).then(handleResponse).catch(handleError);
 
     let pexelsApiKey =
       "563492ad6f91700001000001a6b1167c27c245f9bbe3b6baf2d87030";
-    let pexelsUrl = `https://api.pexels.com/v1/search?query=${keyWord}&per_page=6`;
+    let pexelsUrl = `https://api.pexels.com/v1/search?query=${keyWord}&per_page=1`;
     let headers = { Authorization: `Bearer ${pexelsApiKey}` };
 
     axios.get(pexelsUrl, { headers: headers }).then(handlePexels);
@@ -46,9 +48,15 @@ export default function Dictionary() {
       <section>
         <div className="title">What word do you Want to look up?</div>
         <form onSubmit={search}>
-          <input type="search" autoFocus={true} onChange={handleChange} />
+          <input
+            type="search"
+            autoFocus={true}
+            placeholder="Type a word"
+            onChange={handleChange}
+          />
         </form>
       </section>
+      {errorMessage}
       <Results input={result} />
       <Photos input={photos} />
     </div>

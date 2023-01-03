@@ -30,18 +30,18 @@ body {
 
 .App a {
   text-decoration: none;
-  color: #9c6317;
+  color: #76480b;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1020px) {
+  .App section {
+    margin-bottom: 20px;
+  }
+
   .App body {
     padding: 30px;
     background-image: 100%;
     background-size: cover;
-  }
-
-  section {
-    margin: 20px 10px;
   }
 
   .App footer {

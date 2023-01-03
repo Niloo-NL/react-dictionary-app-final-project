@@ -24,8 +24,8 @@ export default function Dictionary() {
     setErrorMessage(
       <section className="error">
         {" "}
-        "Sorry, the word you are looking for is not in our data base. Look up
-        another word!"{" "}
+        Sorry, the word you are looking for is not in our data base. Please
+        check your spelling or look up another word!{" "}
       </section>
     );
   }
@@ -39,7 +39,7 @@ export default function Dictionary() {
 
     let pexelsApiKey =
       "563492ad6f91700001000001a6b1167c27c245f9bbe3b6baf2d87030";
-    let pexelsUrl = `https://api.pexels.com/v1/search?query=${keyWord}&per_page=1`;
+    let pexelsUrl = `https://api.pexels.com/v1/search?query=${keyWord}&per_page=6`;
     let headers = { Authorization: `Bearer ${pexelsApiKey}` };
 
     axios.get(pexelsUrl, { headers: headers }).then(handlePexels);

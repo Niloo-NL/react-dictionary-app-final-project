@@ -21,8 +21,13 @@ export default function Dictionary() {
   }
 
   function handleError() {
-    setErrorMessage(true);
-    return "Sorry, the word you are looking for is not in our data base. Look up another word!";
+    setErrorMessage(
+      <section className="error">
+        {" "}
+        "Sorry, the word you are looking for is not in our data base. Look up
+        another word!"{" "}
+      </section>
+    );
   }
 
   function search(event) {
@@ -57,6 +62,7 @@ export default function Dictionary() {
         </form>
       </section>
       {errorMessage}
+
       <Results input={result} />
       <Photos input={photos} />
     </div>

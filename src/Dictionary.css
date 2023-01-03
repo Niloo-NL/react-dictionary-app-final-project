@@ -21,6 +21,12 @@ input {
   font-family: "Bad Script", cursive;
 }
 
+.error {
+  font-size: 30px;
+  font-family: "Caveat", cursive;
+  text-align: center;
+}
+
 form {
   margin-bottom: 30px;
 }

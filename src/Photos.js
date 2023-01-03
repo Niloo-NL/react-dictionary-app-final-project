@@ -20,6 +20,6 @@ export default function Photos(props) {
       </section>
     );
   } else {
-    return null;
+    return "There is no related Image";
   }
 }
